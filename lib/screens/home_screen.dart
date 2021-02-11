@@ -62,7 +62,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     (MapEntry map) => _buildIcon(map.key),
                   )
                   .toList(),
-            )
+            ),
+            Column(children:<Widget> [
+              Text("Top Destinations"),
+              Text("See All"),
+            ],
+            ),
           ],
         ),
       ),
