@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_travel_ui_starter/widgets/destination_carousel.dart';
+import 'package:flutter_travel_ui_starter/widgets/hotel.carousel.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -27,11 +28,16 @@ class _HomeScreenState extends State<HomeScreen> {
         height: 60.0,
         width: 60.0,
         decoration: BoxDecoration(
-          color: _selectedIndex == index ? Theme.of(context).accentColor : Color(0xFFE7EBEE),
+          color: _selectedIndex == index
+              ? Theme.of(context).accentColor
+              : Color(0xFFE7EBEE),
           borderRadius: BorderRadius.circular(30.0),
         ),
         child: Icon(_icons[index],
-            size: 30.0, color: _selectedIndex == index ? Theme.of(context).primaryColor : Color(0xFFb4C1C4)),
+            size: 30.0,
+            color: _selectedIndex == index
+                ? Theme.of(context).primaryColor
+                : Color(0xFFb4C1C4)),
       ),
     );
   }
@@ -66,6 +72,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 20.0),
             DestinationCarousel(),
+            SizedBox(height: 20.0),
+            HotelCarousel(),
           ],
         ),
       ),
