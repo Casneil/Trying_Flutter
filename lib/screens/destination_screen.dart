@@ -114,6 +114,63 @@ class _DestinationScreenState extends State<DestinationScreen> {
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20.0)),
+                        child: Column(
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Text(activity.name,
+                                    style: TextStyle(
+                                      fontSize: 18.0,
+                                      fontWeight: FontWeight.w600,
+                                    )),
+                                Column(
+                                  children: <Widget>[
+                                    Text(
+                                      "\$${activity.price}",
+                                      style: TextStyle(
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    Text(
+                                      "per packs",
+                                      style: TextStyle(
+                                          color: Colors.grey, fontSize: 12.0),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Text(activity.type),
+                            // _buildRatingStars(activity.rating),
+                            SizedBox(height: 10.0),
+                            Row(
+                              children: <Widget>[
+                                Container(
+                                  width: 70.0,
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).accentColor,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(activity.startTimes[0]),
+                                ),
+                                SizedBox(width: 10.0),
+                                Container(
+                                  width: 70.0,
+                                  decoration: BoxDecoration(
+                                    color: Theme.of(context).accentColor,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  alignment: Alignment.center,
+                                  child: Text(activity.startTimes[1]),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   );
