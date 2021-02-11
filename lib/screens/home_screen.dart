@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     FontAwesomeIcons.biking
   ];
   int _selectedIndex = 0;
+  int _currentTab = 0;
 
   Widget _buildIcon(int index) {
     return GestureDetector(
@@ -45,38 +46,57 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          padding: EdgeInsets.symmetric(vertical: 30.0),
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 120.0),
-              child: Text(
-                "What would you like to find",
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold,
+        body: SafeArea(
+          child: ListView(
+            padding: EdgeInsets.symmetric(vertical: 30.0),
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0, right: 120.0),
+                child: Text(
+                  "What would you like to find",
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(height: 20.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: _icons
-                  .asMap()
-                  .entries
-                  .map(
-                    (MapEntry map) => _buildIcon(map.key),
-                  )
-                  .toList(),
-            ),
-            SizedBox(height: 20.0),
-            DestinationCarousel(),
-            SizedBox(height: 20.0),
-            HotelCarousel(),
-          ],
+              SizedBox(height: 20.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: _icons
+                    .asMap()
+                    .entries
+                    .map(
+                      (MapEntry map) => _buildIcon(map.key),
+                    )
+                    .toList(),
+              ),
+              SizedBox(height: 20.0),
+              DestinationCarousel(),
+              SizedBox(height: 20.0),
+              HotelCarousel(),
+            ],
+          ),
         ),
-      ),
-    );
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentTab,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              title: SizedBox.shrink(),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.place),
+              title: SizedBox.shrink(),
+            ),
+            BottomNavigationBarItem(
+              icon: CircleAvatar(
+                radius: 12.0,
+                backgroundImage: NetworkImage("http://i.imgur.com/zL4Krbz.jpg"),
+              ),
+              title: SizedBox.shrink(),
+            )
+          ],
+        ));
   }
 }
