@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_travel_ui_starter/models/activity_model.dart';
 import 'package:flutter_travel_ui_starter/models/destination_model.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -103,7 +104,19 @@ class _DestinationScreenState extends State<DestinationScreen> {
             child: ListView.builder(
                 itemCount: widget.destination.activities.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return Text(widget.destination.activities[index].name);
+                  Activity activity = widget.destination.activities[index];
+                  return Stack(
+                    children: <Widget>[
+                      Container(
+                        margin: EdgeInsets.fromLTRB(40.0, 5.0, 20.0, 5.0),
+                        height: 170.0,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20.0)),
+                      ),
+                    ],
+                  );
                 }),
           ),
         ],
